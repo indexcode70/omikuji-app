@@ -1,0 +1,139 @@
+body {
+    background-color: #77ACF2;
+
+    /* 桜の画像　imagesフォルダの画像を指定 */
+    background-image: url('images/sakura.png');
+    background-repeat: no-repeat;
+    background-position: left top; /* 左上から伸ばす */
+    background-size: 550px;  /* 桜のサイズ */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: serif; /* 明朝体(serif)にして和風に */
+
+}
+
+.omikuji-title {
+    color: #eb9b93;
+    border-bottom: 5px solid #eb9b93;
+    padding-bottom: 50px;
+    margin-bottom: 10px;
+}
+
+.omikuji-card {
+    background-color: white;
+    padding: 40px 20px;  /* 内側と外側の隙間(上下は広め、左右は狭く) */
+    text-align: center;
+    width: 230px;
+    min-height: 400px;  /* 最低限の長さを確保 */
+
+    aspect-ratio: 1 / 2;  /* 横1 縦2の比率にする */
+
+    position: relative;  /* 内側の線を基準にするために必須 */
+
+    /* 中央に寄せるための設定 */
+    margin: auto;
+
+    /* 外側の太い線 */
+    border: 4px solid #D92414;
+    border-radius: 5px;    /* 角をラディウス(半径5px)で丸く削る */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);  /* 柔らかい影 */
+    z-index: 1;  /* カードを少し手前に */
+}
+
+/* 内側の細い枠線の設定 */
+.inner-frame {
+
+    /* カードの中に固定する設定 */
+    position: absolute;
+
+    /* 外側からどのくらい離すか(数値が小さいほど外側による) */
+    top: 6px;
+    left: 6px;
+    right: 6px;
+    bottom: 6px;
+
+    /* 内側の細い線 */
+    border: 4px solid #D92414;
+    border-radius: 5px;
+    pointer-events: none; /* ボタンのクリックを邪魔させない */
+    z-index: 2;
+}
+
+#result-area {
+    writing-mode: vertical-rl;
+    height: 250px;
+    padding: 15px 0px;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 0.2em;
+    font-size: 5rem;
+    font-weight: bold;
+    color: #333;
+    width: 100%;
+}
+
+.placeholder {
+    writing-mode: vertical-rl; /* 縦書きにする */
+    margin: 0px;
+    font-size: 1.2rem;
+    color: #888;
+    transform: none;
+}
+
+
+#draw-button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 12px 24px; /* 左の数字が上下、右の数字が左右 */
+    border-radius: 30px;
+    cursor: pointer;   /* マススカーソルを変化させる */
+    font-size: 1rem;
+    transition: all 0.3s ease;  /* なめらかな変化0.3秒ほどが心地良い速度 */
+}
+
+#draw-button:hover {
+    background-color: #666;
+    transform: translateY(-2px);  /* トランスフォーム(変化)させる、Y軸上に2px */
+
+}
+
+.sakura-petal {
+    position: fixed;
+    top: -20px; /* 画面の外(上)からスタート */
+    background-color: #F2DFEB;
+    border-radius: 10px 0 10px; /* 花びらの形 */
+    pointer-events: none; /* クリックの邪魔をさせない */
+    z-index: 999;
+    animation-name: fall;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+
+    /* 花びらの色にグラデーションをつけて、少し透けさせる */
+    background: linear-gradient(135deg, #ffdbed, #ffa6d5);
+
+    /* 遠くの花びらを少しぼかす」*/
+    filter: blur(0.5px);
+
+    /* 橋を少し半透明にする */
+    box-shadow: 0 0 5px rgba(255, 182, 193, 0.5);
+}
+
+/* 落ちるアニメーション */
+@keyframes fall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(110vh) rotate(720deg); /* 画面下まで回転しながら落ちる */
+        opacity: 0;
+    }
+}
