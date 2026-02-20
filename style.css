@@ -137,3 +137,25 @@ body {
         opacity: 0;
     }
 }
+
+
+@media (max-width: 600px) {    /* 画面幅が600px以下(スマホ)の時の設定 */
+    body {
+        /* スマホ上で桜を左に寄せる */
+        /* 1つ目の数値(30%)が左右、0に近づくほど左に寄る */
+        background-position: 30% 10%;
+        background-size: 120%;
+    }
+
+    .omikuji-card {
+        /* カードを小さく調整 */
+        width: 90%; /* 画面幅の80%にする */
+        max-width: 280px; /* 最大でも280px以上に広がらないように制限をかける */
+        padding: 20px; /* 中の余白も少し削る */
+        margin: 100px auto; /* 中央に配置 */
+    }
+
+    .omikuji-title {
+        font-size: 1.2rem; /* タイトルもカードに合わせて少し小さく */
+    }
+}
