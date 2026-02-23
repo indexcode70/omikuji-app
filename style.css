@@ -67,7 +67,7 @@ body {
 #result-area {
     writing-mode: vertical-rl;
     height: 250px;
-    padding: 20px 0px;
+    padding: 5px 0px;
     width: auto;
     display: flex;
     justify-content: center;
@@ -167,8 +167,12 @@ body {
 
     /* 文字がはみ出さないように調整 */
     #result-area {
-        height: 120px;
+        height: 158px;
         font-size: 3rem; /* 大吉などの文字サイズを少し落とす */
+    }
+
+    .placeholder {
+        font-size: 0.8rem;
     }
 
     #draw-button {
