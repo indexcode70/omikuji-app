@@ -1,5 +1,5 @@
 // 1.データのリスト(配列)を作る
-const results = ["大吉","中吉","小吉","吉","末吉","凶"];
+const results = ["大吉","中吉","小吉","吉","末吉","大吉"]; // 凶を大吉に修正(大吉の確率を2倍に
 
 const soundsDaikiti = new Audio('sounds/koto.mp3');
 const soundsNormal = new Audio('sounds/taiko.mp3')
