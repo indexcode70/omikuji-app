@@ -141,21 +141,36 @@ body {
 
 @media (max-width: 600px) {    /* 画面幅が600px以下(スマホ)の時の設定 */
     body {
-        /* スマホ上で桜を左に寄せる */
-        /* 1つ目の数値(30%)が左右、0に近づくほど左に寄る */
-        background-position: 30% 10%;
-        background-size: 120%;
+        /* スマホでは高さを自動にして、カードがはみ出さないようにする */
+        height: auto;
+        min-height: 100vh;
+
+        /* スマホ上で桜を左上に寄せる(!importantで矯正適用)　*/
+        background-position: -20% 0% !important;  /* 1つ目の数字が左右 */
+        background-size: 100% !important;
+
+        /* スマホはスクロールできるようにする */
+        overflow-y: auto;
     }
 
     .omikuji-card {
         /* カードを小さく調整 */
-        width: 90%; /* 画面幅の80%にする */
-        max-width: 280px; /* 最大でも280px以上に広がらないように制限をかける */
-        padding: 20px; /* 中の余白も少し削る */
-        margin: 100px auto; /* 中央に配置 */
+        width: 70% !important; /* 画面幅の70%にする */
+        max-width: 240px !important; /* 最大でも240px以上に広がらないように制限をかける */
+        min-height: 350px !important; /* 少し短くして画面に収まりやすく */
+        
+        padding: 15px !important; /* 中の余白も少し削る */
+        margin: 60px auto !important; /* 中央に配置 */
+    }
+
+    /* 文字がはみ出さないように調整 */
+    #result-area {
+        height: 180px;
+        font-size: 3.5rem; /* 大吉などの文字サイズを少し落とす */
     }
 
     .omikuji-title {
-        font-size: 1.2rem; /* タイトルもカードに合わせて少し小さく */
+        font-size: 1.1rem; /* タイトルもカードに合わせて少し小さく */
+        padding-bottom: 20px;
     }
 }
