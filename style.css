@@ -162,7 +162,8 @@ body {
         min-height: 300px !important; /* 少し短くして画面に収まりやすく */
         
         padding: 15px !important; /* 中の余白も少し削る */
-        margin: 60px auto !important; /* 中央に配置 */
+
+        margin: 35vh auto !important; /* 画面の高さの15%分縦に余白をあける。 autoは左右の余白を自動調整し中央揃えにする */
     }
 
     /* 文字がはみ出さないように調整 */
